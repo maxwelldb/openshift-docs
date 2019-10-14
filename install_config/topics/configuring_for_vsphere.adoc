@@ -174,3 +174,8 @@ app-0.example.com openshift_node_group_name="node-config-compute"
 app-1.example.com openshift_node_group_name="node-config-compute"
 app-2.example.com openshift_node_group_name="node-config-compute"
 ----
+
+[INFO]
+====
+To learn about deploying a vSphere VM environment, see link:https://access.redhat.com/documentation/en-us/reference_architectures/2019/html-single/deploying_and_managing_openshift_3.11_on_a_vmware_software-defined_data_center/index#deploying_a_vsphere_vm_environment_optional[the {product-title} {product-version} reference architecture].
+====
