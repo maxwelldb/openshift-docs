@@ -1,0 +1,6 @@
+# Refreshing a CA Certificate
+If you ran the installer with a custom CA certificate, then this certificate can be changed while the installer is running as needed. To chage your certificate, edit the value of the `ca-cert.pem` key in the `cloud-provider-config` configmap with a valid PEM certificate.
+```sh
+oc edit -n openshift-config cloud-provider-config
+```
+// copy-paste from dev--do not merge
