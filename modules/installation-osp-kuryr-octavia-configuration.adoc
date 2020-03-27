@@ -116,13 +116,21 @@ backend is ML2/OVS. There is no need for modifications if the backend is
 ML2/OVN.
 ====
 
-. To enforce network policies across Services, like when traffic goes through
+. (Not needed for Red Hat OpenStack Platform 16 or later) To enforce
+network policies across Services, like when traffic goes through
 the Octavia load balancer, you must ensure Octavia creates the Amphora VM
 security groups on the user project. To do that, you must add the project ID
 to the `octavia.conf` configuration file after you create the project.
 +
 This ensures that required LoadBalancer security groups belong to that project
 and that they can be updated to enforce Services isolation.
++
+[NOTE]
+====
+This is not needed for {rh-openstack} version 16 or later as Octavia
+implements a new ACL API that allows to restrict accessibility to the Load
+Balancers VIP.
+====
 
 .. Get the project ID
 +
