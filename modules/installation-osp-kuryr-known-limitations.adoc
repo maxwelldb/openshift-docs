@@ -5,7 +5,7 @@
 [id="installation-osp-kuryr-known-limitations_{context}"]
 = Known limitations of installing with Kuryr
 
-There are a number of known limitations when using Kuryr SDN.
+Using {product-title} with Kuryr SDN has several known limitations.
 
 [discrete]
 [id="openstack-resource-limitations_{context}"]
@@ -19,8 +19,7 @@ can cause you to run out of resources.
 [id="openstack-version-limitations_{context}"]
 == {rh-openstack} version limitations
 
-There are limitations when using Kuryr SDN that depend on the {rh-openstack}
-version.
+Using {product-title} with Kuryr SDN has several limitations that depend on the {rh-openstack} version.
 
 * Octavia {rh-openstack} versions before 16 do not support UDP listeners. Therefore,
 OpenShift UDP services are not supported.
@@ -41,19 +40,19 @@ any {rh-openstack} version.
 
 There are limitations when using Kuryr SDN that depend on your deployment environment.
 
-* Because of Octavia's lack of support for the UDP protocol and multiple listeners, Kuryr forces Pods to use TCP
+Because of Octavia's lack of support for the UDP protocol and multiple listeners, Kuryr forces Pods to use TCP
 for DNS resolution if:
-** The {rh-openstack} version is earlier than 16
-** The OVN Octavia driver is used
 
-The `use-vc` option defined in each Pod's `resolv.conf` file controls whether TCP is forced for DNS resolution.
+* The {rh-openstack} version is earlier than 16
+* The OVN Octavia driver is used
 
 In Go versions 1.12 and earlier, applications that are compiled with CGO support disabled use UDP only. In this case,
-the native Go resolver does not recognize the `use-vc` option in `resolv.conf`. As a result, UDP is still used for DNS resolution.
+the native Go resolver does not recognize the `use-vc` option in `resolv.conf`, which controls whether TCP is forced for DNS resolution.
+As a result, UDP is still used for DNS resolution, which fails.
 
 To ensure that TCP forcing is allowed, compile applications either with the environment variable `CGO_ENABLE` set to `1`, i.e. `CGO_ENABLED=1`, or ensure that the variable is absent.
 
-In Go versions 1.13 and later, TCP is used automatically if UDP fails.
+In Go versions 1.13 and later, TCP is used automatically if DNS resolution using UDP fails.
 
 [INFO]
 ====
