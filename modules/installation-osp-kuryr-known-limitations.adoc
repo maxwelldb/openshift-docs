@@ -19,6 +19,7 @@ can cause you to run out of resources.
 [id="openstack-version-limitations_{context}"]
 == {rh-openstack} version limitations
 
+
 Using {product-title} with Kuryr SDN has several limitations that depend on the {rh-openstack} version.
 
 * Octavia {rh-openstack} versions before 16 do not support UDP listeners. Therefore,
@@ -50,7 +51,7 @@ In Go versions 1.12 and earlier, applications that are compiled with CGO support
 the native Go resolver does not recognize the `use-vc` option in `resolv.conf`, which controls whether TCP is forced for DNS resolution.
 As a result, UDP is still used for DNS resolution, which fails.
 
-To ensure that TCP forcing is allowed, compile applications either with the environment variable `CGO_ENABLE` set to `1`, i.e. `CGO_ENABLED=1`, or ensure that the variable is absent.
+To ensure that TCP forcing is allowed, compile applications either with the environment variable `CGO_ENABLED` set to `1`, i.e. `CGO_ENABLED=1`, or ensure that the variable is absent.
 
 In Go versions 1.13 and later, TCP is used automatically if DNS resolution using UDP fails.
 

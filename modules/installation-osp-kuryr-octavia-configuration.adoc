@@ -129,6 +129,7 @@ and that they can be updated to enforce Services isolation.
 [NOTE]
 ====
 This task is unnecessary in {rh-openstack} version 16 or later.
+
 Octavia implements a new ACL API that restricts access to the Load
 Balancers VIP.
 ====
