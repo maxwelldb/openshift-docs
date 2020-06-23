@@ -19,7 +19,7 @@ Create three control plane machines by using the Ignition config files that you 
 
 . If the control plane Ignition config files aren't already in your working directory, copy them into it.
 
-. Insert the following content into a local file that is called `04_control-plane.yaml`:
+. Insert the following content into a local file that is called `control-plane.yaml`:
 +
 [source,yaml]
 ----
@@ -87,7 +87,7 @@ Create three control plane machines by using the Ignition config files that you 
 . On a command line, run the playbook:
 +
 ----
-$ ansible-playbook -i inventory.yaml 04_control-plane.yaml
+$ ansible-playbook -i inventory.yaml control-plane.yaml
 ----
 
 . Run the following command to monitor the bootstrapping process:

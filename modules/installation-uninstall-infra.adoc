@@ -100,7 +100,7 @@ all:
       os_compute_nodes_number: 3
 ----
 
-. _Optional_: If your cluster uses Kuryr, insert the following content into a local file called `down-06_load-balancers.yaml`:
+. _Optional_: If your cluster uses Kuryr, insert the following content into a local file called `down-load-balancers.yaml`:
 +
 [source,yaml]
 ----
@@ -182,7 +182,7 @@ all:
     - versions | length == 0
 ----
 
-. Insert the following content into a local file called `down-05_compute-nodes.yaml`:
+. Insert the following content into a local file called `down-compute-nodes.yaml`:
 +
 [source,yaml]
 ----
@@ -225,7 +225,7 @@ all:
     with_indexed_items: "{{ [os_port_worker] * os_compute_nodes_number }}"
 ----
 
-. Insert the following content into a local file called `down-04_control-plane.yaml`:
+. Insert the following content into a local file called `down-control-plane.yaml`:
 +
 [source,yaml]
 ----
@@ -268,7 +268,7 @@ all:
     with_indexed_items: "{{ [os_port_master] * os_cp_nodes_number }}"
 ----
 
-. Insert the following content into a local file called `down-03_bootstrap.yaml`:
+. Insert the following content into a local file called `down-bootstrap.yaml`:
 +
 [source,yaml]
 ----
@@ -296,7 +296,7 @@ all:
 
 ----
 
-. Insert the following content into a local file called `down-02_network.yaml`:
+. Insert the following content into a local file called `down-network.yaml`:
 +
 [source,yaml]
 ----
@@ -372,7 +372,7 @@ all:
     - pods_subnet_pool.stdout != ""
 ----
 
-. Insert the following content into a local file called `down-01_security-groups.yaml`:
+. Insert the following content into a local file called `down-security-groups.yaml`:
 +
 [source,yaml]
 ----
@@ -403,12 +403,12 @@ all:
 +
 ----
 $ ansible-playbook -i inventory.yaml  \
-	down-03_bootstrap.yaml      \
-	down-04_control-plane.yaml  \
-	down-05_compute-nodes.yaml  \
-	down-06_load-balancers.yaml \
-	down-02_network.yaml        \
-	down-01_security-groups.yaml
+	down-bootstrap.yaml      \
+	down-control-plane.yaml \
+	down-compute-nodes.yaml  \
+	down-load-balancers.yaml \
+	down-network.yaml        \
+	down-security-groups.yaml
 ----
 
 . Remove any DNS record changes you made for the {product-title} installation.

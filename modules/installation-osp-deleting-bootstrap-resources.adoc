@@ -16,7 +16,7 @@ Delete the bootstrap resources that you no longer need.
 
 .Procedure
 
-. Insert the following content into a local file that is called `down-03_bootstrap.yaml`:
+. Insert the following content into a local file that is called `down-bootstrap.yaml`:
 +
 [source,yaml]
 ----
@@ -46,7 +46,7 @@ Delete the bootstrap resources that you no longer need.
 . On a command line, run the playbook:
 +
 ----
-$ ansible-playbook -i inventory.yaml down-03_bootstrap.yaml
+$ ansible-playbook -i inventory.yaml down-bootstrap.yaml
 ----
 
 The bootstrap port, server, and floating IP address are deleted.

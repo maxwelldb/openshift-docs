@@ -90,7 +90,7 @@ all:
       # 3 is the minimum number for a fully-functional cluster.
       os_compute_nodes_number: 3
 ----
-. Insert the following content into a local file that is called `01_security-groups.yaml`
+. Insert the following content into a local file that is called `security-groups.yaml`
 +
 [source,yaml]
 ----
@@ -508,7 +508,7 @@ all:
       protocol: '112'
       remote_ip_prefix: "{{ os_subnet_range }}"
 ----
-. Insert the following content into a local file that is called `02_network.yaml`
+. Insert the following content into a local file that is called `network.yaml`
 +
 [source,yaml]
 ----
@@ -670,13 +670,13 @@ all:
 . On a command line, create security groups by running the first numbered playbook:
 +
 ----
-$ ansible-playbook -i inventory.yaml 01_security-groups.yaml
+$ ansible-playbook -i inventory.yaml security-groups.yaml
 ----
 
 . On a command line, create a network, subnet, and router by running the second numbered playbook:
 +
 ----
-$ ansible-playbook -i inventory.yaml 02_network.yaml
+$ ansible-playbook -i inventory.yaml network.yaml
 ----
 
 . _Optional_: If you want to control the default resolvers that Nova servers use, run the OpenStack CLI command:
