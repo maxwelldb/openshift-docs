@@ -189,8 +189,25 @@ openshift_node_open_ports:
 # set in the inventory file as openshift_openstack_kuryr_pod_subnet_cidr.
 # By default, this value is /24.
 
-# The value of openshift_portal_net in OSEv3.yml must also match the following value:
-# openshift_openstack_kuryr_service_subnet_cidr: *"172.23.192.0/18"*
+openshift_openstack_kuryr_service_subnet_cidr: *"172.30.0.0/15"*
+
+# openshift_portal_net is the range that OpenShift services and their associated
+# Octavia load balancer VIPs use.
+# Its value is set in OSEv3.yml, and must be within the range that is
+# defined by openshift_openstack_kuryr_service_subnet_cidr.
+#
+# For reference, copy its value here:
+# # openshift_portal_net: *"172.30.0.0/16"*
+#
+# Verify that this value is half of openshift_openstack_kuryr_service_subnet_cidr's range.
+# This practice ensures that openshift_portal_net does not overlap with the range that
+# load balancers' VMs use.
+
+# openshift_openstack_kuryr_service_pool_start and openshift_openstack_kuryr_service_pool_end
+# define the range for the Neutron ports that Amphora load balancer VMs use.
+
+openshift_openstack_kuryr_service_pool_start: *"172.31.0.1"*
+openshift_openstack_kuryr_service_pool_end: *"172.31.255.253"*
 
 # End of Kuryr configuration
 
