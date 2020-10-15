@@ -703,6 +703,13 @@ $ operator-sdk new <operator_name> --type=helm \
 +
 (link:https://bugzilla.redhat.com/show_bug.cgi?id=1874754[*BZ#1874754*])
 
+* When running on OpenStack with Kuryr, unnecessary Neutron Ports will get
+created for each `hostNetworking` pod. The ports are safe to be deleted and
+automatic deletion will be implemented in one of the z-stream releases of
+{product-title} 4.6.
++
+(link:https://bugzilla.redhat.com/show_bug.cgi?id=1888318[*BZ#1888318*])
+
 [id="ocp-4-6-asynchronous-errata-updates"]
 == Asynchronous errata updates
 
