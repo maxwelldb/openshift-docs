@@ -37,7 +37,7 @@ $ aws --region ${CLUSTER_REGION} ec2 describe-availability-zones \
 Depending on the region, the list of available zones can be long. The command will return the following fields:
 +
 `ZoneName`:: The name of the Zone.
-`GroupName`:: The group that the zone is part of. You need to save this name to opt-in.
+`GroupName`:: The group that the zone is part of. You need to save this name to opt in.
 `Status`:: The status of the Zone Group. If the status is `not-opted-in` you must opt-in the `GroupName` running the commands below.
 
 . Export a variable to contain the name of the Local Zone to host your VPC by running the following command:
