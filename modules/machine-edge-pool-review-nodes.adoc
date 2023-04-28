@@ -3,7 +3,7 @@
 [id="machine-edge-pool-review-nodes_{context}"]
 = Verifying nodes that were created with edge compute pool
 
-After your cluster have been installed successfully, you can check the Machine created by Machine Set added on install time.
+After your install a cluster that uses AWS Local Zones, check the status of the machine that was created by the machine set manifests created at install time.
 
 . To check the machine sets created from the subnet you added to the `install-config.yaml` file, enter the following command:
 +
