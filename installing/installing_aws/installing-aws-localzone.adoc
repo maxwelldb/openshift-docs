@@ -121,8 +121,6 @@ include::modules/install-creating-install-config-aws-local-zones.adoc[leveloffse
 // Verify removal due to automation.
 // include::modules/installation-localzone-generate-k8s-manifest.adoc[leveloffset=+2]
 
-//[role="_additional-resources"]
-//.Additional resources
 
 include::modules/installation-launching-installer.adoc[leveloffset=+1]
 

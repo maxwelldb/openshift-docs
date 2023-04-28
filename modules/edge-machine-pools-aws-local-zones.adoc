@@ -4,7 +4,7 @@
 
 Edge worker nodes are tainted worker nodes that run in AWS Local Zones locations.
 
-There are some important information when deploying a cluster using Local Zones:
+When deploying a cluster that uses Local Zones:
 
 * Amazon EC2 instances in the Local Zones are more expensive than Amazon EC2 instances in the Availability Zones
 * Latency between applications and end users are lower in Local Zones, and it may vary by location. There is a latency impact for some workloads if, for example, routers are mixed between Local Zones and Availability Zones.

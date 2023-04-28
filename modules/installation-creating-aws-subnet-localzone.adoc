@@ -52,13 +52,13 @@ requires:
   }
 ]
 ----
-<1> Specify the VPC ID, output variable `VpcId` of the CloudFormation stack
+<1> Specify the VPC ID, which is the value `VpcID` in the output of the CloudFormation template.
 for the VPC.
-<2> Specify the Route Table ID, output variable `PublicRouteTableId` of the CloudFormation stack
+<2> Specify the Route Table ID, which is the value of the `PublicRouteTableId` in the CloudFormation stack
 for the VPC.
-<3> Specify the AWS Local Zone name, output variable `ZoneName` of command `aws ec2 describe-availability-zones`
-executed on the section "Opting into AWS Local Zones".
-<4> Specify a CIDR block used to create the Local Zone subnet, must be part of the VPC CIDR block `VpcCidr`.
+```suggestion
+<3> Specify the AWS Local Zone name, which is the value of the `ZoneName` field in the `AvailabilityZones` object that you retrieve in the section "Opting into AWS Local Zones".
+<4> Specify a CIDR block that is used to create the Local Zone subnet. This block must be part of the VPC CIDR block `VpcCidr`.
 
 . Copy the template from the *CloudFormation template for the subnet*
 section of this topic and save it as a YAML file on your computer. This template
