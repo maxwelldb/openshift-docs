@@ -28,11 +28,11 @@ group sync.
 |Name |Description |Schema
 
 |`kind`
-|String value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: link:https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#types-kinds[]
+|String value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. For more information, see link:https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#types-kinds[Types (Kinds)] in the Kubernetes API documentation.
 |string
 
 |`apiVersion`
-|Defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: link:https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#resources[]
+|Defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. For more information, see link:https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#resources[Resources] in the Kubernetes API documentation.
 |string
 
 |`url`
@@ -47,7 +47,7 @@ group sync.
 |Optional password to bind with during the search phase. |v1.StringSource
 
 |`insecure`
-|If `true`, indicates the connection should not use TLS. If `false`, `ldaps://` URLs connect using TLS, and `ldap://` URLs are upgraded to a TLS connection using StartTLS as specified in link:https://tools.ietf.org/html/rfc2830[]. If you set `insecure` to `true`, you cannot use `ldaps://` URL schemes.
+|If `true`, indicates the connection should not use TLS. If `false`, `ldaps://` URLs connect using TLS, and `ldap://` URLs are upgraded to a TLS connection using StartTLS as specified in link:https://tools.ietf.org/html/rfc2830[RFC 2830]. If you set `insecure` to `true`, you cannot use `ldaps://` URL schemes.
 |boolean
 
 |`ca`
