@@ -1,0 +1,86 @@
+// This is included in the following assemblies:
+//
+// TODO: list relevant shiftstack assemblies
+
+:_content-type: PROCEDURE
+[id='modifying-install-config-for-dual-stack-network-shiftstack_{context}']
+= Deploying a cluster on OpenStack with dual-stack networking
+
+You can configure IPv4 and IPv6 address endpoints for cluster nodes that run on {rh-openstack-first}. To configure IPv4 and IPv6 address endpoints for cluster nodes, edit the `machineNetwork`, `clusterNetwork`, and `serviceNetwork` configuration settings in the `install-config.yaml` file. Each setting must have two CIDR entries each. For a cluster with the IPv4 family as the primary address family, specify the IPv4 setting first. For a cluster with the IPv6 family as the primary address family, specify the IPv6 setting first.
+
+.An example installation configuration file for a dual stack cluster on {rh-openstack}  
+[source,yaml]
+----
+apiVersion: v1
+baseDomain: mydomain.test
+featureSet: TechPreviewNoUpgrade
+compute:
+- name: worker
+  platform:
+    openstack:
+      type: m1.xlarge
+  replicas: 3
+controlPlane:
+  name: master
+  platform:
+    openstack:
+      type: m1.xlarge
+  replicas: 3
+metadata:
+  name: mycluster
+networking:
+  machineNetwork:
+  - cidr: "192.168.25.0/24"
+  - cidr: "fd2e:6f44:5dd8:c956::/64"
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  - cidr: fd01::/48
+    hostPrefix: 64
+  serviceNetwork:
+  - 172.30.0.0/16
+  - fd02::/112
+platform:
+  openstack:
+    ingressVIPs: ['192.168.25.79', 'fd2e:6f44:5dd8:c956:f816:3eff:fef1:1bad']
+    apiVIPs: ['192.168.25.199', 'fd2e:6f44:5dd8:c956:f816:3eff:fe78:cf36']
+    controlPlanePort:
+      fixedIPs:
+      - subnet:
+          name: subnet-v4
+      - subnet:
+          name: subnet-v6
+      network:
+        name: dualstack
+----
+
+To provide an interface to the cluster for applications that use IPv4 and IPv6 addresses, configure IPv4 and IPv6 virtual IP (VIP) address endpoints for the Ingress VIP and API VIP services. To configure IPv4 and IPv6 address endpoints, edit the `apiVIPs` and `ingressVIPs` configuration settings in the `install-config.yaml` file . The `apiVIPs` and `ingressVIPs` configuration settings use a list format. The order of the list indicates the primary and secondary VIP address for each service.
+
+[source,yaml]
+----
+platform:
+  baremetal:
+    apiVIPs:
+      - <api_ipv4>
+      - <api_ipv6>
+    ingressVIPs:
+      - <wildcard_ipv4>
+      - <wildcard_ipv6>
+----
+
+ifdef::vSphere[]
+[IMPORTANT]
+====
+You can configure dual-stack networking on a single interface only.
+====
+
+[NOTE]
+====
+* In a vSphere cluster configured for dual-stack networking, the node custom resource object has only the IP address from the primary network listed in `Status.addresses` field.
+* In the pod that uses the host networking with dual-stack connectivity, the `Status.podIP` and `Status.podIPs` fields contain only the IP address from the primary network.
+====
+endif::vSphere[]
+
+ifeval::["{context}" == "installing-vsphere-installer-provisioned-network-customizations"]
+:!vSphere:
+endif::[]
