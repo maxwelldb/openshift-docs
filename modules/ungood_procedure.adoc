@@ -1,0 +1,149 @@
+// PART 1 OF 3: Procedure module demonstrating 22 AsciiDocDITA rules.
+// See also: ungood_assembly.adoc, ungood_minimal.adoc
+
+// 1. DocumentId - NO [id="..."] before title
+// 2. ShortDescription - NO [role="_abstract"] anywhere
+= Ungood Module Title
+Author Name
+
+// 3. AuthorLine - "Author Name" on line 8
+
+:_mod-docs-content-type: procedure
+
+// 4. EquationFormula
+:stem:
+
+// 5. AttributeReference (SUGGESTION - not enabled by default)
+Text with {custom-attribute-name} here.
+
+// 6. EntityReference
+Text with &nbsp; entity.
+
+// 7. ThematicBreak
+'''
+
+// 8. DiscreteHeading - using discrete on level 1 to avoid TaskSection
+[discrete]
+= Floating Discrete Title
+
+// 9. PageBreak
+<<<
+
+// 10. LineBreak
+Line with break +
+continued.
+
+// 11. SidebarBlock
+[sidebar]
+Sidebar paragraph.
+
+// 12. TableFooter
+[%footer]
+|===
+| Cell
+| Footer
+|===
+
+// 13. AdmonitionTitle
+.Admonition Title
+[NOTE]
+====
+Note content.
+====
+
+// 14. IncludeDirective (SUGGESTION - not enabled by default)
+include::some-file.adoc[]
+
+// 15. TagDirective (SUGGESTION - not enabled by default)
+tag::mytag[]
+
+// 16. ConditionalCode (SUGGESTION - not enabled by default)
+ifdef::condition[]
+endif::condition[]
+
+// 17. CalloutList
+<1> Callout item.
+
+// 18. BlockTitle - title on plain paragraph (NOT code/table/image/example)
+.Orphan Block Title
+This paragraph has a block title which is not allowed in DITA.
+
+// PROCEDURE-SPECIFIC RULES
+
+.Prerequisites
+* First prereq
+
+// 19. TaskDuplicate
+.Prerequisites
+* Duplicate prereq section
+
+.Procedure
+
+// 20. TaskStep
+This paragraph violates procedure step requirements.
+
+* Actual step
+
+// 21. TaskExample - second example triggers (must be before section)
+====
+Example one.
+====
+
+====
+Example two.
+====
+
+.Verification
+* Verification step
+
+// 22. NestedSection + TaskSection - level 3 section
+=== Nested Section In Procedure
+
+// 23. ExampleBlock - example inside list
+* Item with nested example
++
+====
+Nested example.
+====
+
+.Additional resources
+
+// 24. RelatedLinks
+This is not a link.
+
+////
+COMPLETE RULE COVERAGE (3 FILES)
+
+FILE 1: ungood_procedure.adoc (this file) - 22 rules:
+ 1. AdmonitionTitle    12. PageBreak
+ 2. AuthorLine         13. RelatedLinks
+ 3. BlockTitle         14. ShortDescription
+ 4. CalloutList        15. SidebarBlock
+ 5. DiscreteHeading    16. TableFooter
+ 6. DocumentId         17. TaskDuplicate
+ 7. EntityReference    18. TaskExample
+ 8. EquationFormula    19. TaskSection
+ 9. ExampleBlock       20. TaskStep
+10. LineBreak          21. TaskTitle
+11. NestedSection      22. ThematicBreak
+
+FILE 2: ungood_assembly.adoc - 1 rule:
+23. AssemblyContents
+
+FILE 3: ungood_minimal.adoc - 2-3 rules (mutually exclusive versions):
+24. ContentType        (Version A - active)
+25. DocumentTitle      (Version A - active)
+26. TaskContents       (Version B - commented, requires uncommenting)
+
+SUGGESTION-LEVEL (not enabled in .vale.ini, violations present in this file):
+27. AttributeReference - {custom-attribute-name}
+28. ConditionalCode    - ifdef::condition[]
+29. IncludeDirective   - include::some-file.adoc[]
+30. TagDirective       - tag::mytag[]
+
+To enable suggestion-level rules, add to .vale.ini:
+  AsciiDocDITA.AttributeReference = suggestion
+  AsciiDocDITA.ConditionalCode = suggestion
+  AsciiDocDITA.IncludeDirective = suggestion
+  AsciiDocDITA.TagDirective = suggestion
+////

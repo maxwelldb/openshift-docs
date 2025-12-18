@@ -1,0 +1,21 @@
+// PART 2 OF 3: Assembly module demonstrating AssemblyContents rule.
+// See also: ungood_procedure.adoc, ungood_minimal.adoc
+
+[id="ungood-assembly"]
+[role="_abstract"]
+= Ungood Assembly
+
+:_mod-docs-content-type: assembly
+
+This assembly demonstrates the AssemblyContents rule.
+
+include::partial-module.adoc[leveloffset=+1]
+
+// AssemblyContents - content other than additional resources after includes
+This paragraph after the include directive violates AssemblyContents.
+
+////
+RULE DEMONSTRATED:
+- AssemblyContents: Content other than additional resources cannot follow include directives in assembly modules.
+////
+

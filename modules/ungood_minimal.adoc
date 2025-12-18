@@ -1,0 +1,43 @@
+// PART 3 OF 3: Edge cases requiring specific configurations.
+// See also: ungood_procedure.adoc, ungood_assembly.adoc
+//
+// This file demonstrates ContentType + DocumentTitle (Version A) OR
+// TaskContents (Version B). These are mutually exclusive.
+
+// ============================================================================
+// VERSION A (ACTIVE): Triggers ContentType + DocumentTitle
+// ============================================================================
+
+[role="_abstract"]
+This file has no document title and no content type attribute.
+
+// ============================================================================
+// VERSION B: Triggers TaskContents (procedure without .Procedure)
+// To use: Delete/comment Version A above and uncomment below:
+// ============================================================================
+
+// [id="ungood-noprocedure"]
+// [role="_abstract"]
+// = Ungood No Procedure
+//
+// :_mod-docs-content-type: procedure
+//
+// This procedure module is missing the required .Procedure block title.
+//
+// .Prerequisites
+// * A prerequisite
+//
+// * Step one without proper procedure title
+// * Step two
+
+////
+RULES DEMONSTRATED:
+Version A (active): ContentType + DocumentTitle
+Version B (commented): TaskContents
+
+These rules require mutually exclusive file configurations:
+- ContentType: requires NO :_mod-docs-content-type: attribute
+- DocumentTitle: requires NO = Title heading
+- TaskContents: requires procedure type WITHOUT .Procedure title
+////
+
