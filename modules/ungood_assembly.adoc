@@ -7,7 +7,7 @@
 
 :_mod-docs-content-type: assembly
 
-This assembly demonstrates the AssemblyContents rule. Meaningless change. you wnat to eoerce the above below duplicate d uplicate 1
+This assembly demonstrates the AssemblyContents rule.
 
 include::partial-module.adoc[leveloffset=+1]
 
