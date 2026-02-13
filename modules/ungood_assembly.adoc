@@ -7,7 +7,7 @@
 
 :_mod-docs-content-type: assembly
 
-This assembly demonstrates the AssemblyContents rule.
+This assembly demonstrates the AssemblyContents rule. Meaningless change.
 
 include::partial-module.adoc[leveloffset=+1]
 
