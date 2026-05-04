@@ -7,8 +7,11 @@
 = Control Plane Machine Set Operator overview
 
 [role="_abstract"]
-You can use the Control Plane Machine Set Operator to automate management of control plane machines in your {product-title} cluster, including automated replacement of degraded machines and rollout of configuration changes.
+You can use the Control Plane Machine Set Operator to automate management of control plane machines in your {product-title} cluster.
+The Operator can replace degraded machines and roll out configuration changes automatically.
 
-When the state of the cluster control plane machine set is set to `Active`, the Operator ensures that the cluster has the correct number of control plane machines with the specified configuration. This allows the automated replacement of degraded control plane machines and rollout of changes to the control plane.
+When you set the control plane machine set state to `Active`, the Operator reconciles the cluster to the correct number of control plane machines.
+It applies the configuration from the custom resource.
+That state allows automated replacement of degraded control plane machines and rollout of changes to the control plane.
 
 A cluster has only one control plane machine set, and the Operator only manages objects in the `openshift-machine-api` namespace.

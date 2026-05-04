@@ -11,7 +11,9 @@ Before using the Control Plane Machine Set Operator, review platform support, cl
 
 * Only Amazon Web Services (AWS), {gcp-first}, {ibm-power-server-name}, Microsoft Azure, Nutanix, VMware vSphere, and {rh-openstack-first} clusters are supported.
 
-* Clusters that do not have preexisting machines that represent the control plane nodes cannot use a control plane machine set or enable the use of a control plane machine set after installation. Generally, preexisting control plane machines are only present if the installation program provisioned the cluster infrastructure.
+* Clusters that do not have preexisting machines that represent the control plane nodes cannot use a control plane machine set.
+You cannot enable the control plane machine set after installation on those clusters.
+Generally, preexisting control plane machines are only present if the installation program provisioned the cluster infrastructure.
 +
 To check if a cluster has the required preexisting control plane machines, run the following command as a user with administrator privileges:
 +
@@ -37,7 +39,10 @@ NAME                    PHASE     TYPE         REGION      ZONE         AGE
 No resources found in openshift-machine-api namespace.
 ----
 
-* The Operator requires the Machine API Operator to be operational and is therefore not supported on clusters with manually provisioned machines. When installing a {product-title} cluster with manually provisioned machines for a platform that creates an active generated `ControlPlaneMachineSet` custom resource (CR), you must remove the Kubernetes manifest files that define the control plane machine set as instructed in the installation process.
+* The Operator requires the Machine API Operator to be operational and is therefore not supported on clusters with manually provisioned machines.
+When you install a {product-title} cluster with manually provisioned machines, your platform might create an active generated `ControlPlaneMachineSet` custom resource (CR).
+If it does, remove the Kubernetes manifest files that define the control plane machine set.
+Follow the removal steps from the installation documentation for your platform.
 
 * Only clusters with three control plane machines are supported.
 
