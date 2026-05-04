@@ -19,7 +19,7 @@ To understand why this procedure is necessary, see link:https://access.redhat.co
 
 .Procedure
 
-. For the `master-1` and `master-2` control plane machines, open the provider specs for editing. For example, to edit the first machine, enter the following command:
+. For the remaining control plane machines, open the provider specs for editing. For example, to edit the second control plane machine, enter the following command:
 +
 [source,terminal]
 ----
@@ -30,7 +30,7 @@ where:
 +
 `<cluster_id>`:: Specifies the ID of the upgraded cluster.
 
-. For the `master-1` and `master-2` control plane machines, edit the value of the `serverGroupName` property in their provider specs to match that of the machine `master-0`.
+. For the other control plane machines, edit the value of the `serverGroupName` property in their provider specs to match the first control plane machine in the set.
 +
 .An example {rh-openstack} provider spec
 [source,yaml,subs="attributes+"]
@@ -70,7 +70,7 @@ providerSpec:
 +
 where:
 +
-`serverGroupName`:: Specifies the server group name. This value must match for machines `master-0`, `master-1`, and `master-2`.
+`serverGroupName`:: Specifies the server group name. This value must be the same for all control plane machines in the set.
 +
 [NOTE]
 ====

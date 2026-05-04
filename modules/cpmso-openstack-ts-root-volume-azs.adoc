@@ -21,7 +21,7 @@ To understand why this procedure is necessary, see link:https://access.redhat.co
 
 .Procedure
 
-. For all control plane machines, edit the provider spec for all control plane machines that match the environment. For example, to edit the machine `master-0`, enter the following command:
+. For each control plane machine, edit the provider spec to match your environment. For example, to edit the first control plane machine, enter the following command. Replace the machine name in the command with a name from `oc get machines -n openshift-machine-api` if your cluster uses different host name patterns:
 +
 [source,terminal]
 ----
