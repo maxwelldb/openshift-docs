@@ -67,7 +67,7 @@ python3.9 -m venv ~/sync-venv
 2. Clone the GitLab `stage` branch outside your working directory and extract `sync.sh`:
    ```bash
    cd /tmp
-   git clone --branch stage --single-branch \
+   git clone --depth 1 --branch stage --single-branch \
      git@gitlab.cee.redhat.com:red-hat-enterprise-openshift-documentation/doc-<version>.git
    cp doc-<version>/sync.sh ./sync-<version>.sh
    chmod +x sync-<version>.sh

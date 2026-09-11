@@ -28,7 +28,7 @@ cd "${WORK_DIR}"
 
 echo "Cloning doc-${VERSION} from GitLab..."
 mkdir -p mock-gitlab
-git clone --bare --branch stage --single-branch git@gitlab.cee.redhat.com:red-hat-enterprise-openshift-documentation/doc-${VERSION}.git "mock-gitlab/doc-${VERSION}.git"
+git clone --bare --depth 1 --branch stage --single-branch git@gitlab.cee.redhat.com:red-hat-enterprise-openshift-documentation/doc-${VERSION}.git "mock-gitlab/doc-${VERSION}.git"
 
 git --git-dir="mock-gitlab/doc-${VERSION}.git" show HEAD:sync.sh > sync.sh
 chmod +x sync.sh
