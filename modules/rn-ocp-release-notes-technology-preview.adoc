@@ -519,9 +519,9 @@ Fleet Management supersedes Selectable Cluster Inventory in {product-title} 4.20
 |====
 
 [id="ocp-release-notes-rhcos-tech-preview_{context}"]
-== {rh-openstack-first} Technology Preview features
+== {product-title} on {rh-openstack-first} Technology Preview features
 
-.{rh-openstack} Technology Preview tracker
+.{product-title} on {rh-openstack} Technology Preview tracker
 [cols="4,1,1,1",options="header"]
 |====
 |Feature |4.21 |4.22 |5.0
